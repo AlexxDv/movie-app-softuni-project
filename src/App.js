@@ -13,11 +13,11 @@ function App() {
 
       <Header />
       <Routes>
-        <React.Fragment>
-          <Route path="/" element={<Watchlist />} />
-          <Route path="/watched" element={<Watched />} />
-          <Route path="/add" element={<Add />} />
-        </React.Fragment>
+
+        <Route path="/" element={<Watchlist />} />
+        <Route path="/watched" element={<Watched />} />
+        <Route path="/add" element={<Add />} />
+
       </Routes>
 
 
