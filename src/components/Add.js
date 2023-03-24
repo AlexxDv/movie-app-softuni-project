@@ -1,4 +1,5 @@
 import { React, useState } from 'react'
+import { MovieCard } from './MovieCard';
 
 export const Add = () => {
   const [inputValue, setInputValue] = useState('');
@@ -35,8 +36,8 @@ export const Add = () => {
           {results.length > 0 && (
             <ul className="results">
               {results.map((movie) => (
-                <li>
-                  {movie.title}
+                <li key={movie.id}>
+                  < MovieCard movie = {movie}/>
                 </li>))}
             </ul>
           )}
