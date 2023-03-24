@@ -26,11 +26,17 @@ export const GlobalProvider = ({ children }) => {
         dispatch({ type: "ADD_MOVIE_TO_WATCHLIST", payload: movie }); //Best practice for Reucer types is to use UPPER_CASE
     }
 
+    const removeMovieFromWatchList = (id) => {
+        dispatch({ type: "REMOVE_MOVIE_FROM_WATCHLIST", payload: id });
+    }
+
     return (
         <GlobalContext.Provider value={{
             watchlist: state.watchlist,
             watched: state.watched,
             addMovieToWatchList,
+            removeMovieFromWatchList,
+            
         }}>
             {children}
         </GlobalContext.Provider>
