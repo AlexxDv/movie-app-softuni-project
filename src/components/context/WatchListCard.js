@@ -1,5 +1,5 @@
 import React from 'react'
-import { MovieControler } from './MovieControler'
+import { MovieControler } from '../MovieControler'
 
 export const WatchListCard = ({ movie, type }) => {
     return (
