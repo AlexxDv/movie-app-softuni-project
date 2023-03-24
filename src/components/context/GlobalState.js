@@ -15,6 +15,12 @@ export const GlobalContext = createContext(initalState);
 export const GlobalProvider = ({ children }) => {
     const [state, dispatch] = useReducer(AppReducer, initalState);
 
+    // Actions
+
+    const addMovieToWatchList = (movie) => {
+        dispatch({ type: "ADD_MOVIE_TO_WATCHLIST", payload: movie }); //Best practice for Reucer types is to use UPPER_CASE
+    }
+
     return (
         <GlobalContext.Provider value={{
             watchlist: state.watchlist,
