@@ -14,4 +14,13 @@ export const GlobalContext = createContext(initalState);
 // Provider Component
 export const GlobalProvider = ({ children }) => {
     const [state, dispatch] = useReducer(AppReducer, initalState);
+
+    return (
+        <GlobalContext.Provider value={{
+            watchlist: state.watchlist,
+            watched: state.watched,
+        }}>
+            {children}
+        </GlobalContext.Provider>
+    )
 }
