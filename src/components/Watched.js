@@ -1,6 +1,6 @@
 import { React, useContext } from 'react'
 import { GlobalContext } from './context/GlobalState'
-import { WatchListCard } from './context/WatchListCard'
+import { WatchListCard } from './WatchListCard'
 
 
 export const Watched = () => {
