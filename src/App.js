@@ -9,25 +9,30 @@ import { Add } from './components/Add';
 import { GlobalProvider } from './components/context/GlobalState';
 import { Login } from './components/Login';
 import { Register } from './components/Register';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
     <>
-      <GlobalProvider>
 
-        <Header />
-        <Routes>
+      <div className="page-container2">
+        <div className="content-wrap2">
+          <GlobalProvider>
+            <Header />
+            <Routes>
 
-          <Route path="/" element={<Watchlist />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/watched" element={<Watched />} />
-          <Route path="/add" element={<Add />} />
+              <Route path="/" element={<Watchlist />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/watched" element={<Watched />} />
+              <Route path="/add" element={<Add />} />
 
-        </Routes>
+            </Routes>
+          </GlobalProvider>
+        </div>
 
-      </GlobalProvider>
-
+        <Footer />
+      </div>
     </>
   );
 }

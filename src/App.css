@@ -122,6 +122,7 @@ header .nav-links li:last-child {
   padding: 50px 0;
   max-width: 600px;
   margin: 0 auto;
+  min-height: 80vh;
 }
 
 .add-content .input-wrapper input {
@@ -187,6 +188,7 @@ header .nav-links li:last-child {
 /* Movie Page */
 .movie-page {
   padding: 30px 0;
+  min-height: 80vh;
 }
 
 .movie-page .header {
@@ -288,4 +290,16 @@ header .nav-links li:last-child {
   color: #c4c4c4;
   font-size: 3rem;
   text-align: center;
+}
+
+.footer-container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  font-size: 1.25rem;
+
+  color: #fff;
+
 }
