@@ -349,3 +349,8 @@ header .nav-links li:last-child {
 .login-form button:active {
   background-color: #0052ac;
 }
+
+.error-message {
+  color: #f44336;
+  margin-top: 0.5rem;
+}
