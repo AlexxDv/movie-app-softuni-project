@@ -10,6 +10,7 @@ import { GlobalProvider } from './components/context/GlobalState';
 import { Login } from './components/Login';
 import { Register } from './components/Register';
 import { Footer } from './components/Footer';
+import { HomePage } from './components/Home';
 
 function App() {
   return (
@@ -21,9 +22,10 @@ function App() {
             <Header />
             <Routes>
 
-              <Route path="/" element={<Watchlist />} />
+              <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/watchlist" element={<Watchlist />} />
               <Route path="/watched" element={<Watched />} />
               <Route path="/add" element={<Add />} />
 

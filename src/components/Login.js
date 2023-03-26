@@ -14,6 +14,7 @@ export const  Login =() => {
   return (
     <div className="login-form-container">
       <form onSubmit={handleSubmit} className="login-form">
+        <h2>Sign In</h2>
         <label htmlFor="email">Email:</label>
         <input
           type="email"

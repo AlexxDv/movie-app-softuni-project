@@ -27,6 +27,7 @@ export const Register = () => {
   return (
     <div className="login-form-container">
       <form onSubmit={handleSubmit} className="login-form">
+        <h2>Sign Up</h2>
         <label htmlFor="email">Email:</label>
         <input
           type="email"

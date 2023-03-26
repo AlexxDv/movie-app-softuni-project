@@ -355,3 +355,29 @@ header .nav-links li:last-child {
   color: #f44336;
   margin-top: 0.5rem;
 }
+
+.background {
+  background-image: url("../public/img1.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home-page-title {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: #000;
+}
+
+.home-page-text {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: #000;
+}
+.text-container {
+  padding: 20px;
+  background-color: rgba(184, 222, 238, 0.8);
+  border-radius: 10px;
+}
