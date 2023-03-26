@@ -1,14 +1,36 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { GlobalContext } from './context/GlobalState';
 
 export const  Login =() => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { setToken } = useContext(GlobalContext);
+  const navigate  = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(`Email: ${email}, Password: ${password}`);
-    // Here you can add the logic to submit the login form to your server or API
+
+    try {
+      const response = await fetch('http://localhost:3030/users/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const token = data.accessToken;
+        setToken(token);
+        localStorage.setItem('token', token);
+        navigate('/')
+      } else {
+        alert('Invalid credentials. Please try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('An error occurred. Please try again.');
+    }
   };
 
   return (
