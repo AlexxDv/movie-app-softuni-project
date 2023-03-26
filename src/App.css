@@ -312,6 +312,7 @@ header .nav-links li:last-child {
 }
 
 .login-form {
+  background-image: linear-gradient(to bottom , #ffffff, #b0f3ff);
   display: flex;
   flex-direction: column;
   gap: 1rem;

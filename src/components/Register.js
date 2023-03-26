@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Register = () => {
   const [email, setEmail] = useState('');
@@ -56,6 +57,9 @@ export const Register = () => {
         {errorMessage && <div className="error-message">{errorMessage}</div>}
 
         <button type="submit">Register</button>
+        <p>
+          Already registered? <Link to="/login">Login here</Link>.
+        </p>
       </form>
     </div>
   );
