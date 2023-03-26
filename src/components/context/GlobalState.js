@@ -6,6 +6,7 @@ import AppReducer from "./AppReducer";
 const initalState = {
     watchlist: localStorage.getItem("watchlist") ? JSON.parse(localStorage.getItem("watchlist")) : [],
     watched: localStorage.getItem("watched") ? JSON.parse(localStorage.getItem("watched")) : [],
+    token: localStorage.getItem("token") || null,
 };
 
 // Create Context
@@ -18,9 +19,14 @@ export const GlobalProvider = ({ children }) => {
     useEffect(() => {
         localStorage.setItem("watchlist", JSON.stringify(state.watchlist));
         localStorage.setItem("watched", JSON.stringify(state.watched));
-    })
+        localStorage.setItem("token", state.token);
+    }, [state]);
+
 
     // Actions
+    const setToken = (token) => {
+        dispatch({ type: "SET_TOKEN", payload: token });
+    }
 
     const addMovieToWatchList = (movie) => {
         dispatch({ type: "ADD_MOVIE_TO_WATCHLIST", payload: movie }); //Best practice for Reucer types is to use UPPER_CASE
@@ -51,6 +57,8 @@ export const GlobalProvider = ({ children }) => {
             addMovieToWatched,
             moveMovieToWatchList,
             removeMovieFromWatched,
+            token: state.token,
+            setToken,
         }}>
             {children}
         </GlobalContext.Provider>
