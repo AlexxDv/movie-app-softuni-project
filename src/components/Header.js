@@ -4,8 +4,9 @@ import { GlobalContext } from './context/GlobalState'
 
 
 export const Header = () => {
-    const { token, logout } = useContext(GlobalContext)
-
+  
+    const { isLoggedIn, logout } = useContext(GlobalContext)
+      
     return (
         <header>
             <div className="container">
@@ -15,7 +16,7 @@ export const Header = () => {
                     </div>
 
                     <ul className="nav-links">
-                        {!token && (<>
+                        {!isLoggedIn && (<>
                             <li>
                                 <Link to="/login">Login</Link>
                             </li>
@@ -24,7 +25,7 @@ export const Header = () => {
                                 <Link to="/register">Register</Link>
                             </li>
                         </>)}
-                        {token && (<>
+                        {isLoggedIn && (<>
                             <li>
                                 <Link to="/watchlist">Watch List</Link>
                             </li>

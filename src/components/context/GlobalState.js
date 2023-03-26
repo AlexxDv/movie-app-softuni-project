@@ -7,6 +7,7 @@ const initalState = {
     watchlist: localStorage.getItem("watchlist") ? JSON.parse(localStorage.getItem("watchlist")) : [],
     watched: localStorage.getItem("watched") ? JSON.parse(localStorage.getItem("watched")) : [],
     token: localStorage.getItem("token"),
+    isLoggedIn: false
 };
 
 // Create Context
@@ -20,6 +21,11 @@ export const GlobalProvider = ({ children }) => {
         localStorage.setItem("watchlist", JSON.stringify(state.watchlist));
         localStorage.setItem("watched", JSON.stringify(state.watched));
         localStorage.setItem("token", state.token);
+        if (state.token) {
+            dispatch({ type: "LOGIN" });
+        } else {
+            dispatch({ type: "LOGOUT" });
+        }
     }, [state]);
 
 
@@ -28,8 +34,18 @@ export const GlobalProvider = ({ children }) => {
         dispatch({ type: "SET_TOKEN", payload: token });
     }
 
+    const setIsLoggedIn = (isLoggedIn) => {
+        dispatch({ type: "SET_ISLOGGEDIN", payload: isLoggedIn });
+      };
+
+    const logout  = () => {
+        localStorage.removeItem("token");
+        setIsLoggedIn(false);
+        dispatch({ type: "LOGOUT" });
+      };
+
     const addMovieToWatchList = (movie) => {
-        dispatch({ type: "ADD_MOVIE_TO_WATCHLIST", payload: movie }); //Best practice for Reucer types is to use UPPER_CASE
+        dispatch({ type: "ADD_MOVIE_TO_WATCHLIST", payload: movie }); //Best practice for Reducer types is to use UPPER_CASE
     }
 
     const removeMovieFromWatchList = (id) => {
@@ -59,6 +75,9 @@ export const GlobalProvider = ({ children }) => {
             removeMovieFromWatched,
             token: state.token,
             setToken,
+            isLoggedIn: state.isLoggedIn,
+            logout,
+            setIsLoggedIn
         }}>
             {children}
         </GlobalContext.Provider>

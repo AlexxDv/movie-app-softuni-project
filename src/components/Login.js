@@ -6,6 +6,7 @@ export const  Login =() => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { setToken } = useContext(GlobalContext);
+  const { setIsLoggedIn } = useContext(GlobalContext);
   const navigate  = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -22,6 +23,7 @@ export const  Login =() => {
         const data = await response.json();
         const token = data.accessToken;
         setToken(token);
+        setIsLoggedIn(true)
         localStorage.setItem('token', token);
         navigate('/')
       } else {

@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate  } from 'react-router-dom';
+import { GlobalContext } from './context/GlobalState';
+
 
 export const Register = () => {
   const [email, setEmail] = useState('');
@@ -7,6 +9,8 @@ export const Register = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const [isRegistered, setIsRegistered] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const { setIsLoggedIn } = useContext(GlobalContext);
+
 
   
   const navigate  = useNavigate();
@@ -49,6 +53,7 @@ export const Register = () => {
     localStorage.setItem('token', token);
     if (token) {
       setIsRegistered(true);
+      setIsLoggedIn(true)
       navigate('/')
     }
 

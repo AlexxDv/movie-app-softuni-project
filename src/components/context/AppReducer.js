@@ -27,6 +27,11 @@ const reducer = (state, action) => {
                 ...state,
                 watched: state.watched.filter(movie => movie.id !== action.payload)
             };
+            case "SET_ISLOGGEDIN":
+                return {
+                  ...state,
+                  isLoggedIn: action.payload,
+                };
         default:
             return state;
     }
