@@ -41,6 +41,7 @@ export const GlobalProvider = ({ children }) => {
     const logout  = () => {
         localStorage.removeItem("token");
         setIsLoggedIn(false);
+        setToken(null);
         dispatch({ type: "LOGOUT" });
       };
 

@@ -5,7 +5,13 @@ import { GlobalContext } from './context/GlobalState'
 
 export const Header = () => {
   
-    const { isLoggedIn, logout } = useContext(GlobalContext)
+    const { isLoggedIn, setIsLoggedIn, setToken, logout } = useContext(GlobalContext)
+    // const logout  = () => {
+    //     localStorage.removeItem("token");
+    //     setToken(null)
+    //     setIsLoggedIn(false)
+        
+    //   };
       
     return (
         <header>
