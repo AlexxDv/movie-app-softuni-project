@@ -381,3 +381,34 @@ header .nav-links li:last-child {
   background-color: rgba(184, 222, 238, 0.8);
   border-radius: 10px;
 }
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.movie-item {
+  width: 30%;
+  margin-bottom: 50px;
+}
+
+.movie-poster {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.movie-title {
+  font-size: 16px;
+  text-align: center;
+
+  
+}
+
+.content-wrap2 {
+  min-height: calc(100vh - 120px);
+  margin-top: 80px;
+  margin-bottom: 60px;
+}
