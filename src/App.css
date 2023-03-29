@@ -439,3 +439,14 @@ header .nav-links2 li {
 header .nav-links2 li:last-child {
   margin-right: 0;
 }
+
+.result-card .poster-wrapper-details img,
+.filler-poster {
+  width: 300px;
+  height: 452px;
+  background-color: #dbdada;
+  border-radius: 10px;
+  margin-right: 30px;
+  display: block;
+  color: transparent;
+}
