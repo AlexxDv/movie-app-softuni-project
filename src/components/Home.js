@@ -26,7 +26,7 @@ export const HomePage = () => {
           <p className="home-page-text">Watching movies is always better with friends. It's a great way to spend time together and share the experience of a great film.</p>
         </div>
    
-        <h1>Upcoming Movies</h1>
+        {/* <h1>Upcoming Movies</h1>
         <div className="movie-grid">
           {movies.map(movie => (
             <div key={movie.id} className="movie-item">
@@ -38,7 +38,7 @@ export const HomePage = () => {
               <h3 className="movie-title">{movie.title}</h3>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   </>
