@@ -357,13 +357,17 @@ header .nav-links li:last-child {
 }
 
 .background {
+  
   background-image: url("../public/img1.jpg");
   background-size: cover;
   background-position: center;
   height: 80vh;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
+  
+ 
+  
 }
 .home-page-title {
   font-size: 3rem;
@@ -375,14 +379,19 @@ header .nav-links li:last-child {
   font-size: 1.4rem;
   line-height: 1.5;
   color: #000;
+  
+
 }
 .text-container {
   padding: 20px;
   background-color: rgba(184, 222, 238, 0.8);
   border-radius: 10px;
+  
 }
 
 .movie-list {
+  padding-bottom: 10px;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -407,8 +416,26 @@ header .nav-links li:last-child {
   
 }
 
-.content-wrap2 {
+/* .content-wrap2 {
   min-height: calc(100vh - 120px);
   margin-top: 80px;
   margin-bottom: 60px;
+} */
+
+header .nav-links2 {
+  
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+header .nav-links2 li {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+header .nav-links2 li:last-child {
+  margin-right: 0;
 }
