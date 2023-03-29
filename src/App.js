@@ -11,6 +11,7 @@ import { Login } from './components/Login';
 import { Register } from './components/Register';
 import { Footer } from './components/Footer';
 import { HomePage } from './components/Home';
+import { Details } from './components/Details';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/details/:id" element={<Details />} />
               <Route path="/watchlist" element={<Watchlist />} />
               <Route path="/watched" element={<Watched />} />
               <Route path="/add" element={<Add />} />

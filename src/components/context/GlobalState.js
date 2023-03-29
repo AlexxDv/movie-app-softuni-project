@@ -65,6 +65,8 @@ export const GlobalProvider = ({ children }) => {
         dispatch({ type: "REMOVE_MOVIE_FROM_WATCHED", payload: id });
     }
 
+   
+
     return (
         <GlobalContext.Provider value={{
             watchlist: state.watchlist,
