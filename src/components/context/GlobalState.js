@@ -7,7 +7,8 @@ const initalState = {
     watchlist: localStorage.getItem("watchlist") ? JSON.parse(localStorage.getItem("watchlist")) : [],
     watched: localStorage.getItem("watched") ? JSON.parse(localStorage.getItem("watched")) : [],
     token: localStorage.getItem("token"),
-    isLoggedIn: false
+    userId: null
+    // isLoggedIn: false
 };
 
 // Create Context
@@ -21,6 +22,7 @@ export const GlobalProvider = ({ children }) => {
         localStorage.setItem("watchlist", JSON.stringify(state.watchlist));
         localStorage.setItem("watched", JSON.stringify(state.watched));
         localStorage.setItem("token", state.token);
+        localStorage.setItem("userId", state.userId)
         if (state.token) {
             dispatch({ type: "LOGIN" });
         } else {
@@ -36,14 +38,19 @@ export const GlobalProvider = ({ children }) => {
 
     const setIsLoggedIn = (isLoggedIn) => {
         dispatch({ type: "SET_ISLOGGEDIN", payload: isLoggedIn });
-      };
+    };
 
-    const logout  = () => {
+    const setUserId = (userId) => { 
+        dispatch({ type: "SET_USERID", payload: userId });
+    };
+
+    const logout = () => {
         localStorage.removeItem("token");
         setIsLoggedIn(false);
         setToken(null);
+        setUserId(null);
         dispatch({ type: "LOGOUT" });
-      };
+    };
 
     const addMovieToWatchList = (movie) => {
         dispatch({ type: "ADD_MOVIE_TO_WATCHLIST", payload: movie }); //Best practice for Reducer types is to use UPPER_CASE
@@ -65,7 +72,7 @@ export const GlobalProvider = ({ children }) => {
         dispatch({ type: "REMOVE_MOVIE_FROM_WATCHED", payload: id });
     }
 
-   
+
 
     return (
         <GlobalContext.Provider value={{
@@ -80,7 +87,9 @@ export const GlobalProvider = ({ children }) => {
             setToken,
             isLoggedIn: state.isLoggedIn,
             logout,
-            setIsLoggedIn
+            setIsLoggedIn,
+            userId: state.userId,
+            setUserId,
         }}>
             {children}
         </GlobalContext.Provider>

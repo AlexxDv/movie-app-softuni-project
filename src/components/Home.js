@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { MovieCard } from './MovieCard';
 
 export const HomePage = () => {
@@ -27,23 +28,19 @@ export const HomePage = () => {
     
         <div className="movie-grid">
           {movies.map(movie => (
-            <div key={movie.id} >
-              {movie.poster_path ? (
-                <img className="movie-poster" src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={`${movie.title} Poster`} />
-              ) : (
-                <div className="filler-poster"></div>
-              )}
-              <h3 className="movie-title">{movie.title}</h3>
-            </div>
+            <Link key={movie.id} to={`/details/${movie.id}`} >
+              <div>
+                {movie.poster_path ? (
+                  <img className="movie-poster" src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={`${movie.title} Poster`} />
+                ) : (
+                  <div className="filler-poster"></div>
+                )}
+                <h3 className="movie-title">{movie.title}</h3>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
     </div>
   );
 }
-
-
-
-
-
-

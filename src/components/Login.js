@@ -5,8 +5,7 @@ import { GlobalContext } from './context/GlobalState';
 export const  Login =() => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { setToken } = useContext(GlobalContext);
-  const { setIsLoggedIn } = useContext(GlobalContext);
+  const { setToken, setUserId,setIsLoggedIn } = useContext(GlobalContext);
   const navigate  = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -21,8 +20,11 @@ export const  Login =() => {
 
       if (response.ok) {
         const data = await response.json();
+        console.log(data);
         const token = data.accessToken;
+        const userId = data._id;
         setToken(token);
+        setUserId(userId);
         setIsLoggedIn(true)
         localStorage.setItem('token', token);
         navigate('/')
