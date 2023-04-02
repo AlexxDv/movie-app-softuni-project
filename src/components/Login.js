@@ -26,7 +26,7 @@ export const  Login =() => {
         setToken(token);
         setUserId(userId);
         setIsLoggedIn(true)
-        localStorage.setItem('token', token);
+        // localStorage.setItem('token', token);
         navigate('/')
       } else {
         alert('Invalid credentials. Please try again.');

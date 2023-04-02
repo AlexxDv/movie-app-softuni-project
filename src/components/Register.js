@@ -9,8 +9,7 @@ export const Register = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const [isRegistered, setIsRegistered] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const { setIsLoggedIn } = useContext(GlobalContext);
-
+  const { setToken, setUserId,setIsLoggedIn } = useContext(GlobalContext);
 
   
   const navigate  = useNavigate();
@@ -48,12 +47,16 @@ export const Register = () => {
 
     const data = await response.json();
     const token = data.accessToken;
+    const userId = data._id;
+
 
     // Save the authorization token to local storage
     localStorage.setItem('token', token);
     if (token) {
       setIsRegistered(true);
       setIsLoggedIn(true)
+      setToken(token);
+      setUserId(userId);
       navigate('/')
     }
 
